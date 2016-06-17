@@ -73,11 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dep\" />
-    <Folder Include="doc\" />
-    <Folder Include="entry\" />
-    <Folder Include="src\css\" />
-    <Folder Include="src\img\" />
-    <Folder Include="src\js\" />
+    <Folder Include="src\assemble\" />
+    <Folder Include="src\common\css\" />
+    <Folder Include="src\common\img\" />
+    <Folder Include="src\common\js\" />
+    <Folder Include="src\photo\" />
+    <Folder Include="src\video\" />
     <Folder Include="test\" />
   </ItemGroup>
   <PropertyGroup>
