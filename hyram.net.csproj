@@ -58,12 +58,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="src\common\css\index.css" />
+    <Content Include="src\common\img\1034.jpg" />
+    <Content Include="test\VidageBG\bak.html" />
+    <Content Include="test\VidageBG\css\Demo.css" />
+    <Content Include="test\VidageBG\css\index.css" />
+    <Content Include="test\VidageBG\css\Vidage.min.css" />
+    <Content Include="test\VidageBG\images\bg.jpg" />
+    <Content Include="test\VidageBG\images\github.svg" />
+    <Content Include="test\VidageBG\images\lighting.svg" />
+    <Content Include="test\VidageBG\images\pattern.svg" />
+    <Content Include="test\VidageBG\images\photo.svg" />
+    <Content Include="test\VidageBG\index.html" />
+    <Content Include="test\VidageBG\js\Vidage.min.js" />
+    <Content Include="test\VidageBG\src\bg.mp4" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="README.md" />
+    <Content Include="test\VidageBG\.project" />
+    <Content Include="test\VidageBG\src\bg.webm" />
+    <Content Include="test\VidageBG\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -73,13 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dep\" />
-    <Folder Include="src\common\css\" />
-    <Folder Include="src\common\img\" />
     <Folder Include="src\common\js\" />
     <Folder Include="src\ext\" />
     <Folder Include="src\photo\" />
     <Folder Include="src\video\" />
-    <Folder Include="test\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
