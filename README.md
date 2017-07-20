@@ -15,5 +15,3 @@ My personal website，website address：www.hyram.net
 - [video](http://video.hyram.net)
 - [blog](http://blog.hyram.net)
 - [ext](http://ext.hyram.net)
-
-### 使用HBuilder编辑
