@@ -1,18 +1,84 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	<link href="src/common/css/index.css" rel="stylesheet" />
-	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Homepage &middot; Hyram</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
 </head>
+
 <body>
-	<div class="divPersonalInfo" style="height: 200px;width: 700px;">
-		<div style="padding: 10px;"><h1>Hyram's personal website.</h1></div>
-		<hr />
-		<div><h3><a href="http://www.github.com/hyramtang">Github</a>|<a href="http://img.hyram.net">Photo</a>|<a href="http://blog.hyram.net">Blog</a></h3></div>
-	</div>
+<div class="vi">
+    <div class="sidebar">
+        <div class="header">
+            <h1>Hyram</h1>
+            <div class="quote">
+                <p class="quote-text animate-init">登高必自卑，行远必自迩。</p>
+                <p class="quote-author animate-init">《中庸》<strong></strong></p>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="https://github.com/hyramtang" class="animate-init">GitHub</a>
+            <a href="https://blog.hyram.net" class="animate-init">Blog</a>
+            <a href="http://photo.hyram.net" class="animate-init">Photo</a>
+        </div>
+        <div class="location">
+            <i class="location-icon"></i>
+            <span class="location-text animate-init">GuangDong - China</span>
+        </div>
+        <div class="relocating">
+            Copy this page from <a href="https://github.com/iissnan/iissnan.github.com" >iissnan</a>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var delay = 1;
+        var DELAY_STEP = 200;
+        var animationOptions = { opacity: 1, top: 0};
+
+        $('h1').animate(animationOptions).promise()
+                .pipe(animateMain)
+                .pipe(animateLocationIcon);
+
+        function animateMain() {
+            var dfd = $.Deferred();
+            var els = $('.animate-init');
+            var size = els.size();
+
+            els.each(function (index, el) {
+                delay++;
+                $(el).delay(index * DELAY_STEP)
+                        .animate(animationOptions);
+                (size - 1 === index) && dfd.resolve();
+            });
+            return dfd.promise();
+        }
+
+        function animateLocationIcon() {
+            $('.location-icon').delay(delay * DELAY_STEP).animate({
+                opacity: 1,
+                top: 0
+            }).promise().done(animationQuote);
+        }
+
+        function animationQuote() {}
+
+        $(document.body).on('keydown', function (event) {
+            // Press 'b' key
+            if (event.which === 66) {
+                $('.relocate-location').text('Bookmark Page');
+                $('.relocating').css('opacity', 1);
+
+                window.setTimeout(function () {
+                    window.location.href = './bookmarks.html';
+                }, 1000);
+            }
+        });
+    });
+</script>
 </body>
 </html>
