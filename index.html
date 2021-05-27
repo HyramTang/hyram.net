@@ -1,84 +1,86 @@
 <!doctype html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Homepage &middot; Hyram</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 </head>
 
 <body>
-<div class="vi">
-    <div class="sidebar">
-        <div class="header">
-            <h1>Hyram</h1>
-            <div class="quote">
-                <p class="quote-text animate-init">登高必自卑，行远必自迩。</p>
-                <p class="quote-author animate-init">《中庸》<strong></strong></p>
+    <div class="vi">
+        <div class="sidebar">
+            <div class="header">
+                <h1>Hyram</h1>
+                <div class="quote">
+                    <p class="quote-text animate-init">挫其锐，解其纷，和其光，同其尘；是谓玄同。</p>
+                    <p class="quote-author animate-init">《道德经》<strong></strong></p>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="https://github.com/hyramtang" class="animate-init">GitHub</a>
+                <a href="https://blog.hyram.net" class="animate-init">Blog</a>
+                <a href="http://photo.hyram.net" class="animate-init">Photo</a>
+            </div>
+            <div class="location">
+                <i class="location-icon"></i>
+                <span class="location-text animate-init">GuangDong - China</span>
+            </div>
+            <div class="relocating">
+                Copy this page from <a href="https://github.com/iissnan/iissnan.github.com">iissnan</a>
             </div>
         </div>
-        <div class="menu">
-            <a href="https://github.com/hyramtang" class="animate-init">GitHub</a>
-            <a href="https://blog.hyram.net" class="animate-init">Blog</a>
-            <a href="http://photo.hyram.net" class="animate-init">Photo</a>
-        </div>
-        <div class="location">
-            <i class="location-icon"></i>
-            <span class="location-text animate-init">GuangDong - China</span>
-        </div>
-        <div class="relocating">
-            Copy this page from <a href="https://github.com/iissnan/iissnan.github.com" >iissnan</a>
-        </div>
     </div>
-</div>
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        var delay = 1;
-        var DELAY_STEP = 200;
-        var animationOptions = { opacity: 1, top: 0};
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var delay = 1;
+            var DELAY_STEP = 200;
+            var animationOptions = { opacity: 1, top: 0 };
 
-        $('h1').animate(animationOptions).promise()
+            $('h1').animate(animationOptions).promise()
                 .pipe(animateMain)
                 .pipe(animateLocationIcon);
 
-        function animateMain() {
-            var dfd = $.Deferred();
-            var els = $('.animate-init');
-            var size = els.size();
+            function animateMain() {
+                var dfd = $.Deferred();
+                var els = $('.animate-init');
+                var size = els.size();
 
-            els.each(function (index, el) {
-                delay++;
-                $(el).delay(index * DELAY_STEP)
+                els.each(function (index, el) {
+                    delay++;
+                    $(el).delay(index * DELAY_STEP)
                         .animate(animationOptions);
-                (size - 1 === index) && dfd.resolve();
-            });
-            return dfd.promise();
-        }
-
-        function animateLocationIcon() {
-            $('.location-icon').delay(delay * DELAY_STEP).animate({
-                opacity: 1,
-                top: 0
-            }).promise().done(animationQuote);
-        }
-
-        function animationQuote() {}
-
-        $(document.body).on('keydown', function (event) {
-            // Press 'b' key
-            if (event.which === 66) {
-                $('.relocate-location').text('Bookmark Page');
-                $('.relocating').css('opacity', 1);
-
-                window.setTimeout(function () {
-                    window.location.href = './bookmarks.html';
-                }, 1000);
+                    (size - 1 === index) && dfd.resolve();
+                });
+                return dfd.promise();
             }
+
+            function animateLocationIcon() {
+                $('.location-icon').delay(delay * DELAY_STEP).animate({
+                    opacity: 1,
+                    top: 0
+                }).promise().done(animationQuote);
+            }
+
+            function animationQuote() { }
+
+            $(document.body).on('keydown', function (event) {
+                // Press 'b' key
+                if (event.which === 66) {
+                    $('.relocate-location').text('Bookmark Page');
+                    $('.relocating').css('opacity', 1);
+
+                    window.setTimeout(function () {
+                        window.location.href = './bookmarks.html';
+                    }, 1000);
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
+
 </html>
